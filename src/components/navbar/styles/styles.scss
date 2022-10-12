@@ -1,0 +1,16 @@
+.navbar-nav > .navbar{
+    justify-content:initial;
+    align-items: baseline;
+    padding: 10px;
+
+    .nav-item{
+       position: relative;
+        top: .4rem;
+        left: 7em;
+
+        .nav-link{
+            margin-right: 2em;
+            border-bottom: 2.5px solid #ff0000;
+        }
+    }
+}
