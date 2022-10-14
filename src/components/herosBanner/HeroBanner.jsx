@@ -17,7 +17,7 @@ const HeroBanner = () => {
                     <h1 className="exercice__text">Exercise</h1>
                 </div>
                 <div className="header__right">
-                    <img src="./assets/images/banner.png" alt="" />
+                    <img src="./assets/images/banner.png" alt="banner" />
                 </div>
             </div>
         </header>

@@ -1,0 +1,18 @@
+.search__container {
+
+    align-items: baseline;
+
+    input{
+        width: 30rem;
+        padding: .3em;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    .btn{
+        border-radius: 0;
+        color: #fff;
+        background-color: #ff2625;
+        width: 6.5rem;
+    }
+}

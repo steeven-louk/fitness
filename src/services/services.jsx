@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const  url= 'https://exercisedb.p.rapidapi.com/exercises'
+const  url= 'https://exercisedb.p.rapidapi.com/exercises';
+const  bodyPartsUrl= 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
 
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '47099885b7msha569d88eaf12779p1db488jsnab1b570843ec',
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
   }
 };
@@ -17,9 +18,11 @@ const options = {
 // });
 
 export const GetAllExercice = async() =>{
-    const getdata = await axios(url, options);
-    console.log('====================================');
-    console.log(getdata);
-    console.log('====================================');
+    const getData = await axios(url, options);
+    return getData;
 }
 
+export const GetBodyPart = async() =>{
+  const getBody = await axios.get(bodyPartsUrl, options);
+  return getBody.data;
+}
