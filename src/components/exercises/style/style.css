@@ -1,0 +1,1 @@
+.exercise__container .exercise__card{flex-wrap:wrap}.exercise__container .exercise__card .card{border:none;border-top:.2em solid red;transition:.3s ease-in-out;cursor:pointer}.exercise__container .exercise__card .card:hover{border:1px solid #ccc;box-shadow:0 0 10px #ccc;transform:scale(1.1)}

@@ -1,0 +1,19 @@
+.exercise__container{
+
+    .exercise__card{
+        flex-wrap: wrap;
+
+        .card{
+            border: none;
+            border-top: .2em solid #ff0000;
+            transition:  .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover{
+                border: 1px solid #ccc;
+                box-shadow: 0 0 10px #ccc;
+                transform: scale(1.1);
+            }
+        }
+    }
+}

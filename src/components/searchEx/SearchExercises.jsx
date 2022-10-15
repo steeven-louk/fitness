@@ -4,11 +4,11 @@ import HorizontalScrollbar from '../horizontalScrollbar/HorizontalScrollbar';
 import './style/style.scss';
 
 
-const SearchExercises = () => {
+const SearchExercises = (props) => {
 
     const [search, setSearch] = useState('');
-    const [exercice, setExercice] = useState([]);
-    const [bodyParts, setBodyParts] = useState([]);
+
+    const {exercice, setExercice, bodyParts, setBodyParts} = props;
     
     const handleSearch = async() =>{
         if(search){
