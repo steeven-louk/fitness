@@ -9,13 +9,13 @@ const Navbar = () => {
         <ul className="navbar">
           <div className="">
             <img
-              src="./assets/images/Logo.png"
+              src="../assets/images/Logo.png"
               alt="logo"
               className="nav-brand"
             />
           </div>
           <li className="nav-item">
-            <NavLink href="/" className="nav-link">
+            <NavLink to="/" className="nav-link">
               Home
             </NavLink>
           </li>
