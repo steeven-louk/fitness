@@ -14,16 +14,14 @@ const options = {
   }
 };
 
-const YoutubeOptions = {
-  method: 'GET',
-  params: {
-    query: '',
-  },
-  headers: {
-    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-    'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
-  }
-};
+// const YoutubeOptions = {
+//   method: 'GET',
+ 
+//   headers: {
+//     'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+//     'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+//   }
+// };
 
 
 export const GetAllExercice = async() =>{
@@ -46,11 +44,11 @@ export const getExerciceById = async(id) =>{
  }
 }
 
-export const youtubeSearchData = async(name) =>{
+export const youtubeSearchData = async(YoutubeOptions) =>{
  try {
-  const getVideo = await axios(`${YoutubeSearch + name}`, YoutubeOptions);
-  console.log("get",getVideo);
-  return getVideo;
+  const getVideo = await axios(YoutubeSearch, YoutubeOptions);
+  // console.log("get",getVideo.data.contents);
+  return getVideo.data.contents;
 
  } catch (error) {
   console.error('error', error);
