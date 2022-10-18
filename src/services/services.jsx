@@ -3,7 +3,9 @@ import axios from "axios";
 const  url= 'https://exercisedb.p.rapidapi.com/exercises';
 const  bodyPartsUrl= 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
 const ExerciceByID= "https://exercisedb.p.rapidapi.com/exercises/exercise/";
-const byTargetUrl = "https://exercisedb.p.rapidapi.com/exercises/target/"
+const byTargetUrl = "https://exercisedb.p.rapidapi.com/exercises/target/";
+const byEquipmentUrl = "https://exercisedb.p.rapidapi.com/exercises/equipment/";
+
 const YoutubeSearch = `https://youtube-search-and-download.p.rapidapi.com/search?q=`;
 
 const options = {
@@ -59,6 +61,16 @@ export const similarTarget = async(target) =>{
     const getTarget = await axios(byTargetUrl + target, options);
     console.log(getTarget)
     return getTarget;
+  }catch(error){
+    console.error('error', error);
+  }
+}
+
+export const similarEquipment = async(equipment) =>{
+  try{
+    const getEquipment = await axios(byEquipmentUrl + equipment, options);
+    console.log(getEquipment)
+    return getEquipment;
   }catch(error){
     console.error('error', error);
   }

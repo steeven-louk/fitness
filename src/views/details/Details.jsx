@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Detail from '../../components/detail/Detail'
+import SimilarEquipment from '../../components/similarEquipment/SimilarEquipment';
 import SimilarTarget from '../../components/similarTarget/SimilarTarget';
 import YoutubeVideos from '../../components/youtubeVideos/YoutubeVideos';
-import { getExerciceById, similarTarget, youtubeSearchData } from '../../services/services';
+import { getExerciceById, similarEquipment, similarTarget, youtubeSearchData } from '../../services/services';
 
 const Details = () => {
 
@@ -12,6 +13,7 @@ const Details = () => {
     const [exercise, setExercise] = useState({});
     const [youtubeVideos, setYoutubeVideos] = useState([]);
     const [getTarget, setGetTarget] = useState([]);
+    const [getEquipment, setGetEquipment] = useState([]);
 
     const YoutubeOptions = {
         method: 'GET',
@@ -45,11 +47,18 @@ const Details = () => {
       .catch((error)=> console.log('error', error));
       setGetTarget(data);
     }
+
+    const getSimilarEquipment = async () =>{
+      const data = await similarEquipment(exercise.equipment).then((data) => data)
+      .catch((error)=> console.log('error', error));
+      setGetEquipment(data);
+    }
       
     useEffect(() => {
        getExercice();
        getYoutubeSearch();
        getSimilarTarget();
+       getSimilarEquipment();
     }, []);
 
   return (
@@ -57,6 +66,7 @@ const Details = () => {
         <Detail exercise={exercise} />
         <YoutubeVideos yVideos={youtubeVideos} name={exercise.name} />
         <SimilarTarget target={getTarget} />
+        <SimilarEquipment equipment={getEquipment} />
     </>
   )
 }
