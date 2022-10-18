@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Detail from '../../components/detail/Detail'
+import SimilarTarget from '../../components/similarTarget/SimilarTarget';
 import YoutubeVideos from '../../components/youtubeVideos/YoutubeVideos';
-import { getExerciceById, youtubeSearchData } from '../../services/services';
+import { getExerciceById, similarTarget, youtubeSearchData } from '../../services/services';
 
 const Details = () => {
 
@@ -10,6 +11,7 @@ const Details = () => {
     
     const [exercise, setExercise] = useState({});
     const [youtubeVideos, setYoutubeVideos] = useState([]);
+    const [getTarget, setGetTarget] = useState([]);
 
     const YoutubeOptions = {
         method: 'GET',
@@ -38,16 +40,23 @@ const Details = () => {
         setYoutubeVideos(data);
     }
 
+    const getSimilarTarget = async () =>{
+      const data = await similarTarget(exercise.target).then((data) => data)
+      .catch((error)=> console.log('error', error));
+      setGetTarget(data);
+    }
       
     useEffect(() => {
        getExercice();
        getYoutubeSearch();
+       getSimilarTarget();
     }, []);
 
   return (
     <>
         <Detail exercise={exercise} />
         <YoutubeVideos yVideos={youtubeVideos} name={exercise.name} />
+        <SimilarTarget target={getTarget} />
     </>
   )
 }
