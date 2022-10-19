@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import Details from './views/details/Details';
 import Home from './views/home/Home';
-// import {GetAllExercice} from './services/services'
+
+import './App.css';
 
 function App() {
   return (

@@ -37,8 +37,8 @@ const Detail = (props) => {
                     </p>
                     
                     <div className="d-flex flex-column gap-4">
-                        {extraDetail?.map((items)=>(
-                           <div key={items.name}>
+                        {extraDetail?.map((items, index)=>(
+                           <div key={index}>
                                 <span><img src={items.icon} alt={items.name}/></span>
                                 <span className='mx-2 text-capitalize fw-400'> {items.name} </span>
                            </div>

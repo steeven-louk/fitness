@@ -3,7 +3,8 @@ import React from 'react'
 const YoutubeVideos = (props) => {
 
     const {yVideos, name} = props;
-  return (
+
+    return (
     <>
         <h2 className="mb-5">Watch <em className='fw-bold text-danger text-capitalize'>{name}</em> exercise videos</h2> <br />
 
